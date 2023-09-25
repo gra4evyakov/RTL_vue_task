@@ -1,0 +1,12 @@
+@import './base.css';
+
+#app {
+  max-width: 849px;
+
+  margin: 0 auto;
+  padding: 32px;
+
+  background-color: #1D1D1D;
+
+  font-weight: normal;
+}
