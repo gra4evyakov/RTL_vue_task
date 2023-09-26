@@ -1,5 +1,12 @@
 <template>
-  <svg class="icon" xmlns="http://www.w3.org/2000/svg" :width="sizes[size]" :height="sizes[size]" viewBox="0 0 54 54" fill="none">
+  <svg
+    class="icon"
+    xmlns="http://www.w3.org/2000/svg"
+    :width="sizes[size]"
+    :height="sizes[size]"
+    viewBox="0 0 54 54"
+    fill="none"
+  >
     <rect y="6" width="48" height="48" :fill="colors[color]" />
     <g filter="url(#filter0_b_0_17)">
       <rect x="6" width="48" height="48" :fill="colors[color]" fill-opacity="0.35" />
@@ -30,38 +37,37 @@
 
 <script lang="ts" setup>
 interface Colors {
-    [key: string] : string
+  [key: string]: string
 }
 
 interface Sizes {
-    [key: string] : number
+  [key: string]: number
 }
 
 defineProps({
-    color: {
-        default: 'green'
-    },
-    size: {
-        default: 'small',
-
-    }
+  color: {
+    default: 'green'
+  },
+  size: {
+    default: 'small'
+  }
 })
 
-const colors : Colors = {
-    green: '#7FAA65',
-    brown: '#D9BB98',
-    purple: '#656CAA',
+const colors: Colors = {
+  green: '#7FAA65',
+  brown: '#D9BB98',
+  purple: '#656CAA'
 }
 
-const sizes : Sizes = {
-    small: 54,
-    medium: 89,
-    large: 130,
+const sizes: Sizes = {
+  small: 54,
+  medium: 89,
+  large: 130
 }
 </script>
 
 <style scoped>
 .icon {
-    display: inline-block;
+  display: inline-block;
 }
 </style>

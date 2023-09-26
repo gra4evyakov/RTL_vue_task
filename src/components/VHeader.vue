@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <img class="header__logo" src="/blur.jpg" alt="logo">
-    <div class="header__info">
-      <uiSkeleton />
+    <img class="header-logo" src="/blur.jpg" alt="logo" />
+    <div class="header-info">
+      <ui-skeleton />
     </div>
   </header>
 </template>
@@ -14,20 +14,19 @@ import uiSkeleton from '@/components/_ui/uiSkeleton.vue'
 <style scoped>
 .header {
   grid-area: Header;
-
   padding: 18px 14px 24px;
-
   border-radius: var(--border-radius);
   border: var(--border);
-  background-color: var(--bg-section)
+  background-color: var(--bg-section);
 }
-.header__logo {
+
+.header-logo {
   width: 100%;
   margin-bottom: 20px;
   border-radius: var(--border-radius);
 }
 
-.header__info {
+.header-info {
   display: flex;
   justify-content: center;
 }

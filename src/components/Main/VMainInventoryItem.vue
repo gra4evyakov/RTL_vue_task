@@ -22,10 +22,6 @@ const { item } = defineProps<{
 </script>
 
 <style scoped>
-
-.item {
-    cursor: pointer;
-}
 .item__quantity {
   position: absolute;
   bottom: 0;
