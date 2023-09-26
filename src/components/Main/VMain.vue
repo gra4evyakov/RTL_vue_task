@@ -1,24 +1,15 @@
 <template>
   <main class="main">
-    <v-main-inventory
+    <VMainInventory
       :cells="25"
-      :inventory="inventory.bag"
-      @toggle-navigation="navigationToggle"
+      :inventory="inventory.currentBag"
+      @toggle-navigation="toggleNavigation"
+      @change-item-position="inventory.changeItemPosition"
     />
-    <v-main-navigation 
-      v-if="navigationStatus" 
-      @close="navigationToggle"
-    >
-      <ui-card 
-        :item="inventory.currentItem" 
-        @delete-item="dialogToggle" 
-      />
-      <ui-dialog 
-        v-if="dialogStatus" 
-        @close="dialogToggle" 
-        @submit="inventory.removeItem" 
-      />
-    </v-main-navigation>
+    <VMainNavigation v-if="navigationStatus" @close="toggleNavigation">
+      <ui-card :item="inventory.currentItem" @delete-item="toggleDialog" />
+      <ui-dialog v-if="dialogStatus" @close="toggleDialog" @submit="inventory.removeItem" />
+    </VMainNavigation>
   </main>
 </template>
 
@@ -36,12 +27,12 @@ const inventory = useInventoryStore()
 const navigationStatus = ref(false)
 const dialogStatus = ref(false)
 
-const navigationToggle = (id: number) => {
-  if(id) inventory.changeCurrentId(id)
+const toggleNavigation = (id: number) => {
+  if (id) inventory.changeCurrentId(id)
   navigationStatus.value = !navigationStatus.value
 }
 
-const dialogToggle = () => {
+const toggleDialog = () => {
   dialogStatus.value = !dialogStatus.value
 }
 </script>
