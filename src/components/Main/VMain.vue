@@ -18,10 +18,10 @@ import { ref } from 'vue'
 import { useInventoryStore } from '@/stores/inventory'
 
 import VMainInventory from '@/components/Main/VMainInventory.vue'
-import VMainNavigation from './VMainNavigation.vue'
+import VMainNavigation from '@/components/Main/VMainNavigation.vue'
 
-import uiCard from '../_ui/uiCard.vue'
-import UiDialog from '../_ui/uiDialog.vue'
+import uiCard from '@/components/_ui/uiCard.vue'
+import UiDialog from '@/components/_ui/uiDialog.vue'
 
 const inventory = useInventoryStore()
 const navigationStatus = ref(false)

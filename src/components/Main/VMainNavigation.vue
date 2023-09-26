@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import svgClose from '../_icons/svgClose.vue'
-import uiButton from '../_ui/uiButton.vue'
+import svgClose from '@/components/_icons/svgClose.vue'
+import uiButton from '@/components/_ui/uiButton.vue'
 
 const emits = defineEmits(['close'])
 </script>

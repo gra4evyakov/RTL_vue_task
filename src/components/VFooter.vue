@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import svgClose from '@/components/_icons/svgClose.vue'
-import uiButton from './_ui/uiButton.vue'
+import uiButton from '@/components/_ui/uiButton.vue'
 </script>
 
 <style scoped>
