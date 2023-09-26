@@ -23,12 +23,17 @@
 
 body {
   min-height: 100vh;
+  background-color: var(--bg-global);
 }
 
-svg {
-  display: block;
+body {
+  cursor: url('/cursor/default.png'), default;
 }
 
 button {
-  cursor: pointer;
+  cursor: url('/cursor/pointer.png'), pointer;
+}
+
+button:active {
+  cursor: url('/cursor/grab.png'), grab;
 }
