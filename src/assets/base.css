@@ -1,16 +1,16 @@
 :root {
---border: 1px solid var(--border-color);
---border-radius: 12px;
---border-color: #4D4D4D;
+  --border: 1px solid var(--border-color);
+  --border-radius: 12px;
+  --border-color: #4d4d4d;
 
---text-primary: #9d9d9d;
---bg-global: #1D1D1D;
---bg-section: #262626;
---bg-skeleton: #434343;
---bg-hover: #2F2F2F;
+  --text-primary: #9d9d9d;
+  --bg-global: #1d1d1d;
+  --bg-section: #262626;
+  --bg-skeleton: #434343;
+  --bg-hover: #2f2f2f;
 
---btn-primary: #FFFFFF;
---btn-danger: #FA7272;
+  --btn-primary: #ffffff;
+  --btn-danger: #fa7272;
 }
 
 *,
