@@ -88,7 +88,6 @@ export const useInventoryStore = defineStore('inventory', () => {
   })
 
   const changeCurrentId = (id: number) => {
-    console.log(id)
     currentId.value = id
   }
 
