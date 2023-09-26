@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <svgItem size="large" :color="item.color" />
+      <svgItem size="large" :color="item?.color" />
     </div>
     <div class="card-content">
       <uiSkeleton />
@@ -23,10 +23,9 @@ interface InventoryItem {
   id: number
   color: string
   quantity: number
-  position: number
 }
 
-const { item } = defineProps<{ item: InventoryItem }>()
+const { item } = defineProps<{ item: InventoryItem | null }>()
 
 const deleteItem = () => {
   emits('deleteItem')

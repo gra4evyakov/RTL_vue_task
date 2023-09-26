@@ -26,12 +26,12 @@ interface InventoryItem {
 }
 
 interface Inventory {
-  [key: number]: InventoryItem
+  [key: number]: InventoryItem | null
 }
 
 const props = defineProps<{
   cells: number
-  inventory: Inventory
+  inventory: Inventory 
 }>()
 
 const emits = defineEmits(['toggle-navigation', 'change-item-position'])
@@ -74,7 +74,6 @@ const dropItem = (targetCell: number) => {
 
   color: inherit;
   background: transparent;
-  cursor: pointer;
 }
 
 .inventory-cell:hover {

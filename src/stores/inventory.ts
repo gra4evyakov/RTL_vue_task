@@ -9,13 +9,13 @@ interface BagItem {
 }
 
 interface Bag {
-  [key: number]: BagItem
+  [key: number]: BagItem | null
 }
 
 const INVENTORY_LS_KEY = 'inventory_data'
 
 export const useInventoryStore = defineStore('inventory', () => {
-  const bag: Ref<Bag> = ref({
+  const bag = ref<Bag>({
     0: {
       id: 1,
       color: 'green',
@@ -68,7 +68,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   // LOCAL STORAGE
   const loadInventoryFromLocalStorage = () => {
-    const savedInventoryData = getLocalStorageItem(INVENTORY_LS_KEY)
+    const savedInventoryData = getLocalStorageItem<Bag>(INVENTORY_LS_KEY)
     if (savedInventoryData) {
       bag.value = savedInventoryData
     }
@@ -81,7 +81,7 @@ export const useInventoryStore = defineStore('inventory', () => {
   loadInventoryFromLocalStorage()
   // LOCAL STORAGE
 
-  const currentId = ref(0)
+  const currentId = ref<number>(0)
 
   const currentItem = computed(() => {
     return bag.value[currentId.value - 1]
@@ -110,7 +110,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   const removeItem = (quantity: number) => {
     if (currentId.value > 0 && bag.value[currentId.value - 1]) {
-      bag.value[currentId.value - 1].quantity -= quantity
+      bag.value[currentId.value - 1]!.quantity -= quantity
       saveInventoryToLocalStorage()
     }
   }

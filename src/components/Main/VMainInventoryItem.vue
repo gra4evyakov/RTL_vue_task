@@ -1,8 +1,8 @@
 <template>
   <div class="item">
-    <svgItem class="item__icon" :color="item.color" />
+    <svgItem class="item__icon" :color="item?.color" />
     <div class="item__quantity">
-      {{ item.quantity }}
+      {{ item?.quantity }}
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ interface InventoryItem {
 }
 
 const { item } = defineProps<{
-  item: InventoryItem
+  item: InventoryItem | null
 }>()
 </script>
 
