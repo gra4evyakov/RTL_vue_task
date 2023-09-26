@@ -1,12 +1,19 @@
 @import './base.css';
 
 #app {
-  max-width: 849px;
+  max-width: 857px;
 
   margin: 0 auto;
   padding: 32px;
 
-  background-color: #1D1D1D;
-
-  font-weight: normal;
+  display: grid; 
+  grid-template-columns: 236px 525px; 
+  grid-template-rows: 500px 72px; 
+  gap: 32px 32px; 
+  grid-template-areas: 
+    "Header Main"
+    "Footer Footer"; 
+    
+  color: var(--text-primary);
+  background-color: var(--bg-global)
 }
