@@ -1,17 +1,22 @@
 <template>
   <div class="inventory">
     <button
-      v-for="item in props.cells"
-      :key="item"
-      class="inventory__cell"
-      @click="emits('toggleNavigation', item)"
+      v-for="cell in props.cells"
+      :key="cell"
+      class="inventory-cell"
+      @click="toggleNavigation(cell)"
+      draggable="true"
+      @dragover.prevent
+      @drop="dropItem(cell)"
+      @dragstart="dragStart(cell)"
     >
-      <v-main-inventory-item v-if="props.inventory[item - 1]" :item="props.inventory[item - 1]" />
+      <VMainInventoryItem v-if="props.inventory[cell - 1]" :item="props.inventory[cell - 1]" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import VMainInventoryItem from '@/components/Main/VMainInventoryItem.vue'
 
 interface InventoryItem {
@@ -24,12 +29,27 @@ interface Inventory {
   [key: number]: InventoryItem
 }
 
-const emits = defineEmits(['toggleNavigation'])
-
 const props = defineProps<{
   cells: number
   inventory: Inventory
 }>()
+
+const emits = defineEmits(['toggle-navigation', 'change-item-position'])
+
+const toggleNavigation = (cell: number) => {
+  if (!props.inventory[cell - 1]) return
+  emits('toggle-navigation', cell)
+}
+
+const startIndex = ref(0)
+
+const dragStart = (cell: number) => {
+  startIndex.value = cell
+}
+
+const dropItem = (targetCell: number) => {
+  emits('change-item-position', startIndex.value, targetCell)
+}
 </script>
 
 <style scoped>
@@ -42,7 +62,7 @@ const props = defineProps<{
   grid-template-columns: repeat(5, 1fr);
 }
 
-.inventory__cell {
+.inventory-cell {
   position: relative;
 
   display: flex;
@@ -54,21 +74,26 @@ const props = defineProps<{
 
   color: inherit;
   background: transparent;
+  cursor: pointer;
 }
 
-.inventory__cell + .inventory__cell {
+.inventory-cell:hover {
+  background-color: var(--bg-hover);
+}
+
+.inventory-cell + .inventory-cell {
   border-left: 0;
 }
 
-.inventory__cell:first-child {
+.inventory-cell:first-child {
   border-left: 0;
 }
 
-.inventory__cell:nth-child(5n) {
+.inventory-cell:nth-child(5n) {
   border-right: 0;
 }
 
-.inventory__cell:nth-last-child(-n + 5) {
+.inventory-cell:nth-last-child(-n + 5) {
   border-bottom: 0;
 }
 </style>
