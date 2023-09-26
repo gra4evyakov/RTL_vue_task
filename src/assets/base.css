@@ -1,5 +1,14 @@
 :root {
+--border: 1px solid #4D4D4D;
+--border-radius: 12px;
 
+--text-primary: #9d9d9d;
+--bg-global: #1D1D1D;
+--bg-section: #262626;
+--bg-skeleton: #434343;
+
+--btn-primary: #FFFFFF;
+--btn-danger: #FA7272;
 }
 
 *,
@@ -12,4 +21,12 @@
 
 body {
   min-height: 100vh;
+}
+
+svg {
+  display: block;
+}
+
+button {
+  cursor: pointer;
 }
