@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
+  <svg class="icon" xmlns="http://www.w3.org/2000/svg" :width="sizes[size]" :height="sizes[size]" viewBox="0 0 54 54" fill="none">
     <rect y="6" width="48" height="48" :fill="colors[color]" />
     <g filter="url(#filter0_b_0_17)">
       <rect x="6" width="48" height="48" :fill="colors[color]" fill-opacity="0.35" />
@@ -33,10 +33,18 @@ interface Colors {
     [key: string] : string
 }
 
+interface Sizes {
+    [key: string] : number
+}
+
 defineProps({
     color: {
         default: 'green'
     },
+    size: {
+        default: 'small',
+
+    }
 })
 
 const colors : Colors = {
@@ -44,4 +52,16 @@ const colors : Colors = {
     brown: '#D9BB98',
     purple: '#656CAA',
 }
+
+const sizes : Sizes = {
+    small: 54,
+    medium: 89,
+    large: 130,
+}
 </script>
+
+<style scoped>
+.icon {
+    display: inline-block;
+}
+</style>
