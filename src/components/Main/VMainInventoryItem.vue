@@ -24,11 +24,13 @@ const { item } = defineProps<{
 <style scoped>
 .item__quantity {
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+
   padding: 2px 4px;
-  border-left: var(--border);
+
   border-top: var(--border);
+  border-left: var(--border);
   border-radius: 6px 0px 0px 0px;
 
   font-size: 10px;

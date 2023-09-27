@@ -18,23 +18,27 @@ import uiButton from '@/components/_ui/uiButton.vue'
 
 <style scoped>
 .footer {
-  grid-area: Footer;
   position: relative;
+
   padding: 18px 68px 18px 18px;
-  border-radius: var(--border-radius);
+
   border: var(--border);
+  border-radius: var(--border-radius);
   background-color: var(--bg-section);
+
+  grid-area: Footer;
 }
 
 .skeleton {
   height: 100%;
+
   border-radius: var(--border-radius);
   background-color: var(--bg-skeleton);
 }
 
 .actions {
   position: absolute;
-  right: 8px;
   top: 8px;
+  right: 8px;
 }
 </style>

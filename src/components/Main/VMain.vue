@@ -40,12 +40,13 @@ const toggleDialog = () => {
 <style scoped>
 .main {
   position: relative;
-  grid-area: Main;
 
   overflow: hidden;
 
-  outline: var(--border);
   border-radius: var(--border-radius);
+  outline: var(--border);
   background-color: var(--bg-section);
+
+  grid-area: Main;
 }
 </style>

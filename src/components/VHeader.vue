@@ -13,16 +13,19 @@ import uiSkeleton from '@/components/_ui/uiSkeleton.vue'
 
 <style scoped>
 .header {
-  grid-area: Header;
   padding: 18px 14px 24px;
-  border-radius: var(--border-radius);
+
   border: var(--border);
+  border-radius: var(--border-radius);
   background-color: var(--bg-section);
+
+  grid-area: Header;
 }
 
 .header-logo {
   width: 100%;
   margin-bottom: 20px;
+
   border-radius: var(--border-radius);
 }
 
