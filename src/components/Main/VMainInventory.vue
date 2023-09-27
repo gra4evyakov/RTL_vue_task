@@ -1,18 +1,19 @@
 <template>
-  <div class="inventory">
-    <button
+  <ul class="inventory">
+    <li
       v-for="cell in props.cells"
       :key="cell"
       class="inventory-cell"
       @click="toggleNavigation(cell)"
+      tabindex="0"
       draggable="true"
       @dragover.prevent
       @drop="dropItem(cell)"
       @dragstart="dragStart(cell)"
     >
       <VMainInventoryItem v-if="props.inventory[cell - 1]" :item="props.inventory[cell - 1]" />
-    </button>
-  </div>
+  </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -54,10 +55,11 @@ const dropItem = (targetCell: number) => {
 
 <style scoped>
 .inventory {
+  display: grid;
+
   width: 525px;
   height: 500px;
 
-  display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(5, 1fr);
 }
@@ -66,14 +68,19 @@ const dropItem = (targetCell: number) => {
   position: relative;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  border: var(--border);
-  border-top: 0;
+  cursor: url('/cursor/pointer.png'), pointer;
 
   color: inherit;
+  border: var(--border);
+  border-top: 0;
   background: transparent;
+}
+
+.inventory-cell:active {
+  cursor: url('/cursor/grab.png'), grab;
 }
 
 .inventory-cell:hover {
